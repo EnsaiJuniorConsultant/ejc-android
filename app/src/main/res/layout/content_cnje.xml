@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ejc.appli.MainActivity"
+    android:background="@color/colorPrimaryLight"
+    tools:showIn="@layout/app_bar_main"
+    tools:ignore="Overdraw">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_margin="8dp"
+            android:elevation="3dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            tools:targetApi="lollipop">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:maxWidth="300dp"
+            android:maxHeight="300dp"
+            android:contentDescription="@string/textCNJE2"
+            android:src="@mipmap/equipecnje"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE4"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="50dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/textCNJE5"
+                android:src="@mipmap/cnje"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE6"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE7"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE8"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE9"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE11"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE12"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE13"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE15"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="50dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/textCNJE16"
+            android:src="@mipmap/cnje"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE17"/>
+
+
+
+                <TextView
+                    android:id="@+id/tvStat1chiffre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/textCNJE18"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/tvStat1label"
+                    android:text="@string/textCNJE19"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/textCNJE20"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/textCNJE21"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/textCNJE22"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/textCNJE23"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/textCNJE24"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/textCNJE25"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="50dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/textCNJE26"
+                android:src="@mipmap/cnje"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE27"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE28"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="50dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/textCNJE29"
+                android:src="@mipmap/cnje"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE30"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE31"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="50dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/textCNJE35"
+                android:src="@mipmap/cnje"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE36"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="0dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textCNJE37"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,159 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Strings related to App Info -->
+    <string name="app_name" translatable="false">Ensai junior Consultant</string>
+    <string name="app_description">Restez informé.e de l\'actualité d\'Ensai junior Consultant, la Junior-Entreprise de l\'Ensai. Découvrez les articles du blog, l\'histoire d\'EjC, et contactez les administrateurs.</string>
+    <string name="navigation_drawer_open">Ouvrir le menu</string>
+    <string name="navigation_drawer_close">Fermer le menu</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <!-- Strings related to Navigation Drawer -->
+    <string name="contact">Nous Contacter</string>
+    <string name="les_junior_entreprises">Les Junior-Entreprises</string>
+
+    <!-- Strings related to Bottom Menu -->
+    <string name="bottom_i1">Calendrier</string>
+    <string name="bottom_i2" translatable="false">Blog</string>
+    <string name="bottom_i3" translatable="false">Wanted</string>
+    <string name="bottom_i4" translatable="false">FAQ</string>
+    <string name="bottom_home">Accueil</string>
+
+    <!-- String Related to Page Contact -->
+    <string name="presidence">Présidence</string>
+    <string name="descPresidence">Suivie des études. Gestion des partenariats.</string>
+    <string name="PrezStat1" translatable="false">3</string>
+    <string name="PrezStat1Label">membres</string>
+    <string name="PrezStat2" translatable="false">\> 1</string>
+    <string name="PrezStat2Label">an d\'expérience JE</string>
+    <string name="chefdeprojet">Chef de projet</string>
+    <string name="CdPStat1" translatable="false">48</string>
+    <string name="CdPStat1Label">Chefs de Projet</string>
+    <string name="descCdP">Rédige le devis.   Recrute les intervenants.   Gère l\'étude.</string>
+    <string name="CdPStat2Label">Par étude</string>
+    <string name="CdPStat2" translatable="false">2</string>
+    <string name="CI">Contrôle Interne</string>
+    <string name="descCI">Suivi des études. Contrôle la qualité des documents</string>
+    <string name="devco">Développement Commercial</string>
+    <string name="descDevco">Représente EjC en salon.   Prospecte.   Répond aux appels d\'offre</string>
+    <string name="info">Informatique</string>
+    <string name="descInfo">Gère le site, le blog \n et l\'ensemble du matériel informatique d\'EjC</string>
+    <string name="secgen">Secrétaire général</string>
+    <string name="descSecGen">Gestion administrative. Suivie d\'étude.</string>
+    <string name="treso">Trésorerie</string>
+    <string name="descTreso">Gestion et administration du budget d\'EjC.</string>
+    <string name="devcoStat1" translatable="false">4</string>
+    <string name="devcoStat1Label">membres</string>
+    <string name="comm">Communication</string>
+    <string name="descComm">Pôle événementiel d\'EjC. Mais aussi Community Manager, Designer.</string>
+    <string name="nbreCIstat2" translatable="false">1</string>
+    <string name="descCIstat2">document\nrelu par jour</string>
+    <string name="chiffreDevCoStat2" translatable="false">4</string>
+    <string name="descDevCoStat2">salons minimum\n par an</string>
+    <string name="stat2descInfo">langages  d\'info gérés</string>
+    <string name="stat2info" translatable="false">5</string>
+    <string name="stat2descSecGen">adhérents à gérer  administrativement</string>
+    <string name="stat2secgen" translatable="false"><![CDATA[> 40]]></string>
+    <string name="stat2com" translatable="false">5</string>
+    <string name="stat2desccomm">Réseaux</string>
+    <string name="tresoStat" translatable="false">1</string>
+    <string name="tresoStatDesc">comptable</string>
+    <string name="statCI" translatable="false">2</string>
+    <string name="StatSecGen" translatable="false">1</string>
+    <string name="secGenStat1Label">membre</string>
+
+    <!-- Strings related to login -->
+    <string name="title_activity_webview" translatable="false">WebviewActivity</string>
+    <string name="title_activity_login" translatable="false">Connexion</string>
+    <string name="prompt_email" translatable="false">Email</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Se connecter</string>
+    <string name="action_sign_in_short" translatable="false">Connexion</string>
+    <string name="error_invalid_email">Email invalide</string>
+    <string name="error_invalid_password">Mot de passe trop petit</string>
+    <string name="error_incorrect_password">Mot de passe incorrect</string>
+    <string name="error_field_required">Champs requis</string>
+    <string name="permission_rationale" translatable="false">"La permission Contact est obligatoire pour effectuer la complétion des mails"."</string>
+    <string name="se_connecter">Connexion</string>
+    <string name="d_connexion">Déconnexion</string>
+    <string name="rester_connect_e">Rester connecté.e</string>
+
+    <string name="contentDescLogoEmail" translatable="false">Logo email</string>
+    <string name="mailPrez">presidence@ejc.fr</string>
+    <string name="ejc">EjC</string>
+    <string name="contentDescBoutonEnvoi" translatable="false">Bouton envoi d\'un email</string>
+    <string name="historyMaisAussi">Mais aussi…</string>
+    <string name="contentDescImgArtDescApp" translatable="false">Image du premier article, là pour mener vers l\'article qui présente l\'appli</string>
+    <string name="WhyEjCApp">Pourquoi une appli EjC ?</string>
+    <string name="TitreArticleDescAppli">Découvrez les fonctionnalités de l\'application</string>
+    <string name="ContentDescImgArt" translatable="false">Image de l\'article</string>
+    <string name="contentDescLogoEnvoi" translatable="false">Logo envoi</string>
+    <string name="menuOutils">Outils</string>
+    <string name="menuDashboardTitle">Tableau de bord du mandat</string>
+    <string name="menuTitleConsultant">Nos consultants, leurs compétences</string>
+    <string name="menuTitleHistory">L\'histoire d\'EjC depuis 1996</string>
+    <string name="menuTitlePartenaire">Nos partenaires</string>
+    <string name="menuTitleCNJE">Le mouvement JE</string>
+    <string name="menuTitleJER">Les Junior-Entreprises Rennaises</string>
+    <string name="menuTitleAPropos">A propos</string>
+    <string name="contentDescImgSplash" translatable="false">Image du Splash Screen</string>
+    <string name="contentDescLogoEjC" translatable="false">Logo d\'EjC</string>
+    <string name="aboutApp">Application conçue par le mandat 2018 d\'Ensai junior Consultant.</string>
+    <string name="contentDescImgPanda" translatable="false">Image du Panda pour spécifier qu\'il n\'y a pas d\'article</string>
+    <string name="textCNJE1">La Confédération Nationale des Junior-Entreprises (CNJE) est l’organisation qui gère les 180 Junior-Entreprises françaises. Elle est à la tête du 1er mouvement étudiant de France ! Créée en 1969, elle siège à Paris. La CNJE est découpée en différents pôles et son équipe est élue pour un mandat d’1 an.</string>
+    <string name="textCNJE2">Organigramme de la CNJE</string>
+    <string name="textCNJE3">Les 3 principales missions de la CNJE sont :   - défendre et promouvoir ses différentes marques (Junior-Création, Junior-Initiative, Junior-Entreprise)   - favoriser les échanges et la collaboration entre structures   - conseiller, former et accompagner les structures dans leur développement</string>
+    <string name="textCNJE4">C’est elle qui nous soumet un cadre légal facilitant nos interactions avec les entreprises. Elle vient aussi auditer et conseiller notre JE et assure le dynamisme du mouvement.     2 congrès nationaux et 2 congrès régionaux ont lieu chaque année pour faire dialoguer ensemble la CNJE et les Junior-Entreprises. Ces congrès sont l’occasion pour les Junior-Entrepreneurs de faire grandir leur structure et la valoriser en candidatant à des prix ou de développer leurs réseaux, leurs compétences grâce aux formations. Aujourd\'hui, les congrès nationaux rassemblent sous un même toit des milliers de Junior-Entrepreneur mais avant d’en arriver, le mouvement s\'est construit pas à pas</string>
+    <string name="textCNJE5">Logo de la CNJE</string>
+    <string name="textCNJE6">1967 : Naissance de la 1ère JE du monde.</string>
+    <string name="textCNJE7">L’ESSEC, École Supérieure des sciences économiques et commerciales, crée la première Junior-Entreprise de France, et du Monde : Junior ESSEC Conseil.</string>
+    <string name="textCNJE8">1969 : Création de la CNJE.</string>
+    <string name="textCNJE9">Six Junior-Entreprises décide de mettre en place la Confédération Nationale des Junior-Entreprises.</string>
+    <string name="textCNJE10">1984 : Lettre de Beregovoy.</string>
+    <string name="textCNJE11">Après une période d’insouciance (1979–1984) pendant laquelle les Juniors n’avaient pas de contraintes spécifiques (cotisations sociales, TVA, impôts, déclaratifs, etc.), l’Etat définit un statut fiscal. Les Juniors ne sont plus considérées comme de simples associations de loi 1901 (loi de Waldeck-Rousseau).</string>
+    <string name="textCNJE12">1988 : Arrêté et lettre ministériels.</string>
+    <string name="textCNJE13">Suite au procès de 1986 opposant une JE à l’URSSAF, l’Etat définit un statut social pour les Junior-Entreprises. Elles doivent désormais payer des cotisations sociales à l’URSSAF mais disposent d’un statut dérogatoire et ont moins de charges à payer que les véritables entreprises.</string>
+    <string name="textCNJE14">2007 : Lettre de l’ACOSS.</string>
+    <string name="textCNJE15">Ce dernier texte du cadre légal des Junior-Entreprises apporte des précisions sur la notion de plus-value pédagogique. Dans certains cas, les consultants recrutés pour une étude peuvent travailler sur des phases sans plus value pédagogique et ouvre la voie aux sous-traitances.</string>
+    <string name="textCNJE16">Logo de la CNJE</string>
+    <string name="textCNJE17">Aujourd\'hui :</string>
+    <string name="textCNJE18">3 500</string>
+    <string name="textCNJE19">problématiques résolues par des professionnels chaque années</string>
+    <string name="textCNJE20">40 000</string>
+    <string name="textCNJE21">professionnels accompagnés par des Juniors-Entreprises</string>
+    <string name="textCNJE22">21 000</string>
+    <string name="textCNJE23">étudiants de l\'enseignement supérieur prêts à réaliser vos projets</string>
+    <string name="textCNJE24">181</string>
+    <string name="textCNJE25">Junior-Entreprises réparties dans toutes la France</string>
+    <string name="textCNJE26">Logo de la CNJE</string>
+    <string name="textCNJE27">Différents rôles dans le mouvement :</string>
+    <string name="textCNJE28" tools:ignore="Typos">Plusieurs expériences se profilent en appartenant au mouvement des Junior-Entrepreneur. Les responsabilités, les manières de précéder, des compétences engagés varient selon les actions menées.    Administrateur JE : L’administrateur JE s’occupe de la gestion d’une Junior-Entreprise au quotidien. Il appartient à un pôle et a des missions bien définies (dans une fiche de poste qui lui est remise au début de son mandat). Les pôles standards en Junior-Entreprise sont : le secrétariat général, la trésorerie, le contrôle interne (ou pôle qualité), le développement commercial, la communication, le pôle informatique et la présidence. L’administrateur JE est généralement élu pour un an mais ce chiffre peut varier suivant les structures pour s\'adapter à l’école.    Administrateur CNJE : Comme l’administrateur JE, l’administrateur CNJE appartient à un pôle, est élu pour 1 an et a des missions bien précises. Pourtant, il participe à la gestion quotidienne d’une structure à plus grande échelle : la CNJE. Pour cette raison, avant de postuler pour être membre de la CNJE, il faut déjà avoir effectué un mandat en Junior-Entreprise. En plus du travail de son pôle, l’administrateur CNJE tient le rôle d’intermédiaire privilégié entre quelques JE et la CNJE.    Consultant : Le consultant n’intervient pas dans la gestion de la Junior-Entreprise mais c’est lui qui réalise les études. Après avoir adhéré à la Junior-Entreprise de son école, le consultant peut candidater pour réaliser une étude pour laquelle il a les compétences nécessaires. Une fois “engagé”, il est guidé par un chef de projet (= administrateur JE ou un ancien) qui fait le lien entre les attentes du client et le travail du consultant. Réaliser une étude en tant que consultant est très valorisant, d’autant plus que certaines études se terminent par une présentation des résultats en physique devant le client.    Auditeur-Conseil : L’auditeur-conseil est un expert du cadre légal et de la réglementation.. Un junior-entrepreneur devient auditeur-conseil à l’issue d’un test écrit, d’un oral et d’un week-end de formation : le WEFA. Il intervient lors d’un moment très important en fin de mandat dans une JE : l’audit-conseil. L’auditeur-conseil fait un bilan de l’organisation ou de la trésorerie pour s’assurer de la viabilité de la structure et n’oublie pas de conseiller la JE en soulevant des points d’amélioration pour l’aider à se développer et améliorer les prochains audits ;) EjC compte 2 auditeurs-conseils : Thibaut Dubois (mandat 2016) en organisationnel et Mélanie Guhl (mandat 2018) en trésorerie.    Ancien de la JE : Si un mandat en JE dure généralement 1 an, l’expérience JE ne s’arrête pas là ! Les anciens de la JE restent disponibles et à l’écoute pour répondre aux questions des nouveaux membres et prêtent main forte pour les événements. Ils nous partagent leurs expériences et ont un regard avisé et du recul sur la structure. Pour ces raisons, le réseau des anciens est très important !    Ancien de la CNJE : De la même façon qu’un JE à son lot d\'anciens présents pour appuyer l\'équipe en place et conseiller sur le long terme, la CNJE reste en contact avec celles et ceux qui l’ont fait vivre.</string>
+    <string name="textCNJE29">Logo de la CNJE</string>
+    <string name="textCNJE30">La garantie d’une qualité de chaque Junior-Entreprise</string>
+    <string name="textCNJE31">Le rôle premier du mandat d’administrateurs de la CNJE est de protéger les acquis du mouvement, veiller à l\'image qu’il renvoit, et garantir le sérieux et la qualité de chaque structure, au quatre coins de la France.    L’audit : L’audit-conseil est le moment “stressant” du mandat. Il arrive deux semaines avant ou après la passation à la nouvelle équipe. C’est lors de la journée d’audit que les auditeurs-conseils (junior-entrepreneurs extérieurs) viennent vérifier tout ce qui s’est passé au cours du mandat. Tous les sujets sont abordés et tous les pôles concernés : trésorerie, comptabilité, secrétariat général, communication, informatique, développement commercial, projets et stratégie de la présidence, et bien-sûr études réalisées pour nos clients.    Les formations : à chaque congrès, les Junior-Entrepreneur peuvent assister à des formations permettant d\'améliorer leur process, d’imaginer de nouveaux projets, d’assimiler les nouveaux outils, les nouvelles réglementations. Ces formations sont dispensés par des administrateurs de la CNJE, pas des anciens de la CNJE, par des partenaires ou par des conférenciers. Au programme, communication, trésorerie, développement commercial, informatique, management, … tous les pôles d’EjC y trouvent leur compte.</string>
+    <string name="textCNJE35">Logo de la CNJE</string>
+    <string name="textCNJE36">Un moyen de faire grandir le mouvement</string>
+    <string name="textCNJE37">5 Assemblées Générales des Présidents ont lieu chaque année : en mars (au CRP), mai (au CNE), juin, septembre et novembre (au CNH). Lors de ces assemblées, les présidents des Junior-Entreprises votent les promotions ou les rétrogradations des structures nouvelles ou en difficulté et la CNJE fait un point sur les actualités (évolution du cadre légal, stratégie, événements, …). L’AGP de juin est traditionnellement réservée au vote de la nouvelle équipe de la CNJE qui a sa passation le 1er juillet.    C\'est grâce à la CNJE et son activité de lobbying, que le mouvement se fait connaître au sein de la classe politique ou auprès des grandes entreprises. Les administrateurs de CNJE obtiennent et entretiennent grâce à leur activité des partenariats, des modifications du cadre légal et une considération de la part de certains acteurs économiques et politiques.</string>
+    <string name="textConsultant1">L’essence même des Junior-Entreprises est de permettre aux étudiants d’une école d’appliquer concrètement, dans un contexte professionnel, des outils vus en cours. Quand une étude est proposée à un étudiant, elle doit être justifiée par une plus-value pédagogique dans le domaine de compétences de notre école : l’Ensai.</string>
+    <string name="textConsultant2">Logo de l\'ENSAI</string>
+    <string name="textConsultant3">Notre école fait partie, avec l\'Ensae, du Groupe des écoles nationales d\'économie et de statistique. Le Genes rassemble les activités d\'enseignement et de recherche de l\'Insee.     \tCréée en 1994, l\'Ensai a déménagé en 1996 de Paris jusqu\'au campus de Ker Lann, situé au sud de Rennes.     \tAfin de former des cadres de haut niveau qualifiés dans le traitement et l’analyse de l’information, Le programme scolaire de l\'ENSAI prévoit des cours de statistique dès la première année (Statistique exploratoire, statistique inférencielle, tests, …). Ainsi, comme nous administrateurs, les consultants d’Ensai Junior Consultant sont des ingénieurs en devenir de niveau BAC+2 à BAC+4.     \tEn tant qu\'étudiants de l\'Ensai, nous avons des profils variés construits par notre expérience post-BAC et par nos choix de spécialisation.</string>
+    <string name="textConsultant4">Lien vers une vidéo YT de description de l\'ENSAI.</string>
+    <string name="textConsultant5">Une fois à l\'Ensai dans le cursus ingénieur, nous pouvons nous spécialiser à plusieurs reprises. Dès la première année, nous sommes invités à choisir un cours d’ouverture, enrichissant notre culture générale (Philosophie, psychologie, architecture, citer les autres). La seconde année est marquée par l\'apparition des premières spécifications personnelles dans une liste de cours de statistique ou d’informatique proposés par l’Ensai. Enfin, nous choisissons pour notre troisième année une filière parmis les six qui nous sont proposées (Génie statistique, Gestion des risques et ingénierie financière, Statistique pour les sciences de la vie, Statistique et ingénierie des données, Marketing quantifatif et revenue management, Ingénierie statistique des territoires et de la santé). Ces différents parcours permettent aux élèves de l\'Ensai d\'être performants dans de nombreux domaines.</string>
+    <string name="textConsultant6">Description des différents domaines de compétence</string>
+    <string name="textConsultant7">Bouton précédent</string>
+    <string name="contentDescBoutonSuiv" translatable="false">Bouton suivant</string>
+    <string name="textConsultant8">Un projet que vous voudriez nous confier ? Rendez-vous sur l\'onglet Nous Contacter ou envoyez un mail à contact@ejc.fr. A bientôt peut-être … !</string>
+    <string name="contentDescImgContact" translatable="false">Silhouette de profil</string>
+    <string name="contentDescImgHistory" translatable="false">Image illustrant un mandat. Cette image doit être modifiée dans le code JAVA</string>
+    <string name="JERdateCre">Date de création :</string>
+    <string name="JERstatut">Statut : Junior-Entreprise</string>
+    <string name="sringJERdatePM">Date de passage de marque :</string>
+    <string name="stringJERintro">Ensai junior Consultant fait partie des Junior-Entreprises Rennaises. Un regroupement de 5 JE, venues de 5 écoles d’ingénieur ou de commerce. Le but des JER est de se rendre visible mutuellement, d’apprendre ensemble, d’échanger des savoirs, des manières de fonctionner et de coopérer sur certaines études.    Nos discussions entre JER passent par les réseaux sociaux, par des réunions autour des thèmes de la vie en Junior-Entreprise, ou afterwork pour profiter ensemble du large choix de sorties qu’offre la ville de Rennes.</string>
+    <string name="stringMainUneBlog">A la une du blog</string>
+    <string name="stringMainInterview">Nos dernières interviews</string>
+    <string name="stringMainProchainement">Prochainement</string>
+    <string name="stringWantedContent">Contenu de l\'étude :</string>
+    <string name="stringWantedComp">Compétences requises :</string>
+    <string name="stringWantedEcheancierEtude">Echéancier de l\'étude :</string>
+    <string name="stringWantedLienPostuler">Postuler à l\'étude</string>
+    <string name="mentionlegalEjC">© 2018 Tous droits réservés. EjC Ensai junior Consultant Campus de Ker-Lann, Rue Blaise Pascal - BP 37203 35172 BRUZ cedex</string>
+    <string name="stringJERdomComp">Domaine de compétences</string>
+</resources>

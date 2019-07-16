@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ejc.appli.MainActivity"
+    android:background="@color/colorPrimaryLight"
+    tools:showIn="@layout/app_bar_main">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_margin="8dp"
+        android:elevation="3dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        tools:targetApi="lollipop">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textConsultant1" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_margin="20dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/textConsultant2"
+            android:src="@mipmap/ensai"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textConsultant3"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_horizontal"
+            android:maxWidth="300dp"
+            android:maxHeight="300dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/textConsultant4"
+            android:src="@mipmap/consultantvide"
+            android:id="@+id/ConsultantVideo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textConsultant5"/>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_marginBottom="50dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/next"
+                app:layout_constraintLeft_toRightOf="@id/prev"
+                android:id="@+id/ConsFil3A"
+                android:foregroundGravity="center_vertical"
+                android:contentDescription="@string/textConsultant6"
+                android:src="@mipmap/fondaccueil"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/prev"
+                android:foregroundGravity="center_vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:contentDescription="@string/textConsultant7"
+                android:src="@android:drawable/ic_media_previous"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/next"
+                android:foregroundGravity="center_vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/contentDescBoutonSuiv"
+                android:src="@android:drawable/ic_media_next"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:textSize="@dimen/sizeText"
+            android:text="@string/textConsultant8"/>
+
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

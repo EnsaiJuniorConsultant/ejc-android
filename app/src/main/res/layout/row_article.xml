@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="3dp"
+    android:background="?attr/selectableItemBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="3dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/myrectwanted"
+        tools:targetApi="lollipop">
+
+    <ImageView android:id="@+id/imgArticle"
+        android:layout_width="133dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        tools:background="#AAA"
+        android:src="@mipmap/fondaccueil"
+        android:contentDescription="@string/ContentDescImgArt"/>
+
+    <TextView
+        android:id="@+id/titreArticle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/imgArticle"
+        android:layout_alignTop="@+id/imgArticle"
+        android:textStyle="bold"
+        tools:text="Titre de l'article" />
+
+
+    <TextView android:id="@+id/auteurArticle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_alignStart="@+id/titreArticle"
+        android:layout_below="@+id/titreArticle"
+        tools:text="Auteur de l'article" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="3dp"
+    android:layout_marginTop="10dp">
+
+<LinearLayout
+    android:layout_width="50dp"
+    android:orientation="vertical"
+    android:id="@+id/date"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/day"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/month"
+        android:textSize="20sp"/>
+
+</LinearLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toEndOf="@id/date"
+    android:layout_margin="8dp"
+    android:elevation="3dp"
+    android:layout_centerVertical="true"
+    android:background="@drawable/myrectevent"
+    android:id="@+id/info"
+    tools:targetApi="lollipop">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/title"
+    android:textStyle="bold"
+    android:textSize="17sp"
+    android:textColor="@color/white"
+    android:layout_margin="3dp"/>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:layout_margin="3dp"
+    android:layout_below="@id/title"
+    android:id="@+id/location"/>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/by"
+    android:textColor="@color/white"
+    android:layout_margin="3dp"
+    android:layout_below="@id/location"/>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:id="@+id/commentaire"
+    android:layout_margin="3dp"
+    android:layout_below="@id/by"/>
+
+</RelativeLayout>
+
+</RelativeLayout>

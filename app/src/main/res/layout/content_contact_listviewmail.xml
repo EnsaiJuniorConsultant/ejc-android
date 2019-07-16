@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/selectableItemBackground"
+    android:padding="@dimen/activity_horizontal_margin"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/ivContactItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:contentDescription="@string/contentDescLogoEmail"
+        android:src="@android:drawable/ic_dialog_email" />
+
+    <TextView
+        android:id="@+id/tvMailAdresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_toEndOf="@id/ivContactItem"
+        android:layout_toStartOf="@+id/chkState"
+        android:textSize="17sp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/mailPrez"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#212121" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMailAdresse"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="8dp"
+        android:textSize="13sp"
+        android:layout_toEndOf="@id/ivContactItem"
+        android:id="@+id/tvMailTypeAdresse"
+        android:text="@string/ejc"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#727272" />
+
+    <ImageView
+        android:id="@+id/chkState"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:contentDescription="@string/contentDescBoutonEnvoi"
+        app:srcCompat="@drawable/ic_menu_send"
+
+        android:padding="6dp"/>
+
+</RelativeLayout>

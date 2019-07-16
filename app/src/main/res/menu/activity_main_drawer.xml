@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_contact"
+        android:title="@string/contact" />
+
+
+    <item android:title="@string/menuOutils"
+        android:id="@+id/section_outils"
+        android:visible="false">
+        <menu>
+            <item
+                android:id="@+id/nav_dashboard"
+                android:visible="false"
+                android:title="@string/menuDashboardTitle"/>
+        </menu>
+    </item>
+
+    <item android:title="@string/app_name">
+        <menu>
+            <item
+                android:id="@+id/nav_ejc_consultants"
+                android:title="@string/menuTitleConsultant" />
+            <item
+                android:id="@+id/nav_ejc_history"
+                android:title="@string/menuTitleHistory" />
+            <item
+                android:id="@+id/nav_ejc_partenaires"
+                android:visible="false"
+                android:title="@string/menuTitlePartenaire" />
+        </menu>
+    </item>
+
+    <item android:title="@string/les_junior_entreprises">
+        <menu>
+            <item
+                android:id="@+id/nav_mvmt"
+                android:title="@string/menuTitleCNJE" />
+            <item
+                android:id="@+id/nav_jer"
+                android:title="@string/menuTitleJER" />
+        </menu>
+    </item>
+
+    <item tools:ignore="MenuTitle">
+        <menu>
+           <!-- <item
+                android:id="@+id/nav_setting"
+                android:title="Paramètres" /> -->
+
+            <item
+                android:id="@+id/nav_login"
+                android:title="@string/se_connecter" />
+
+            <item
+                android:id="@+id/nav_logout"
+                android:title="@string/d_connexion"
+                android:visible="false"/>
+
+            <item
+                android:id="@+id/nav_aboutapp"
+                android:title="@string/menuTitleAPropos" />
+        </menu>
+    </item>
+
+</menu>
