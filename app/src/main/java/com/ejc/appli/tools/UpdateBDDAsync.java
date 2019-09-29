@@ -39,11 +39,11 @@ public class UpdateBDDAsync extends AsyncTask<String, Integer, String> {
     }
 
     protected String doInBackground(String... strings) {
-        String result = "coucou" ;
+        String result = "" ;
         for (String string : strings) {
             try {
                 OkHttpClient client = new OkHttpClient();
-                URL url = new URL("http://ejc.fr/android/" + string + ".html");
+                URL url = new URL("https://ejc.fr/android/" + string + ".html");
                 Request request = new Request.Builder()
                         .url(url)
                         .build();
@@ -62,7 +62,7 @@ public class UpdateBDDAsync extends AsyncTask<String, Integer, String> {
 
         try {
             OkHttpClient client = new OkHttpClient();
-            URL url = new URL("http://ejc.fr/android/jdate.html");
+            URL url = new URL("https://ejc.fr/android/jdate.html");
             Request request = new Request.Builder()
                     .url(url)
                     .build();
@@ -111,7 +111,7 @@ public class UpdateBDDAsync extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
 
-        if (!s.equals("coucou")) {
+        if (!s.equals("")) {
 
             try {
                 JSONArray mJasonArray = new JSONArray(s);

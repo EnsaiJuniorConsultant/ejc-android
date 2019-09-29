@@ -16,7 +16,7 @@ public class WebviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final WebView myWebView = new WebView(this);
-        myWebView.loadUrl(url);
+        myWebView.loadUrl(url.replaceAll("http://", "https://"));
         myWebView.getSettings().setJavaScriptEnabled(true);
 
         myWebView.setWebViewClient(new WebViewClient() {

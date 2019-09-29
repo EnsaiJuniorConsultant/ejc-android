@@ -96,7 +96,7 @@ public class PoleFragment extends Fragment {
 
                 arrayOfUsers.clear();
                 arrayOfUsers.add(new MailContact("communication@ejc.fr", "EjC"));
-                arrayOfUsers.add(new MailContact("marie.mrct@ensai.fr", "Administrateur"));
+                arrayOfUsers.add(new MailContact("marie.ract@ensai.fr", "Administrateur"));
                 arrayOfUsers.add(new MailContact("remy.chevalier@ensai.fr", "Administrateur"));
                 arrayOfUsers.add(new MailContact("juliette.meyer@ensai.fr", "Administrateur"));
                 arrayOfUsers.add(new MailContact("louis.le-clainche@ensai.fr", "Administrateur"));

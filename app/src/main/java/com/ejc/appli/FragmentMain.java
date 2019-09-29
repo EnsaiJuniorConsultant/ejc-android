@@ -64,7 +64,7 @@ public class FragmentMain extends Fragment {
         View vue = inflater.inflate(R.layout.content_main, container, false);
 
         ArrayList<Article> arrayOfInterviews = new ArrayList<>();
-        Boolean trouve;
+        boolean trouve;
         int j;
         for (Article a : MainActivity.arrayOfArticles){
             trouve = false;

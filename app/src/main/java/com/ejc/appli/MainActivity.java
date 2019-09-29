@@ -202,10 +202,6 @@ public class MainActivity extends AppCompatActivity
             fragment = FragmentAboutApp.newInstance();
         } else if (id == R.id.nav_ejc_history) {
             fragment = FragmentHistoryVerticalTabbed.newInstance();
-        } else if (id == R.id.nav_ejc_partenaires) {
-            fragment = FragmentPartenaireTabbed.newInstance();
-        } else if (id == R.id.nav_dashboard) {
-            fragment = FragmentDashboard.newInstance();
         } else if (id == R.id.nav_ejc_consultants) {
             fragment = FragmentConsultant.newInstance();
         } else if (id == R.id.nav_mvmt) {
@@ -285,6 +281,8 @@ public class MainActivity extends AppCompatActivity
         arrayOfWanteds.clear();
         arrayOfInterview.clear();
 
+        // Load wanted
+        // TODO: Create a function ParseJSON in the Class Wanted
         try {
             String importWanted =  CacheThis.readObject(this.getBaseContext(), "jwanted").toString();
             JSONArray mJasonArray = new JSONArray(importWanted);
@@ -341,14 +339,15 @@ public class MainActivity extends AppCompatActivity
 
             }
         } catch (JSONException | IOException | ClassNotFoundException e) {
+            Log.e("wanteds_from_cache", e.toString());
             e.printStackTrace();
         }
 
-
+        // Load events
+        // TODO: Create a function ParseJSON in the Class Event
         try {
             String importEvent =  CacheThis.readObject(this.getBaseContext(), "jevent").toString();
             JSONArray mJasonArray = new JSONArray(importEvent);
-
             for (int i=0; i < mJasonArray.length(); i++) {
                 JSONObject oneObject = mJasonArray.getJSONObject(i);
                 Event candidat = new Event(
@@ -374,24 +373,30 @@ public class MainActivity extends AppCompatActivity
             });
 
         } catch (JSONException | IOException | ClassNotFoundException e) {
+            Log.e("events_from_cache", e.toString());
             e.printStackTrace();
         }
 
+        // Load articles
+        // TODO : Import articles from the Internet
         try {
-            //Essayer d'importer le fichier JSON d'internet avant d'aller dans le cache
-            //importer ces informations dans un thread lancer dans le slash screen
+            // Read cache file jarticle, created during the splash screen
+            // Parse the file to generate an array a articles
             String importArticle =  CacheThis.readObject(this.getBaseContext(), "jarticle").toString();
             JSONArray mJasonArray = new JSONArray(importArticle);
-            Log.i("bdd","Ajout de "+mJasonArray.length()+" Articles");
+            Log.i("articles_from_cache","Ajout de "+mJasonArray.length()+" Articles");
+            // TODO: Create a method ParseJSON in the Class Article
             for (int i=0; i < mJasonArray.length(); i++) {
                 JSONObject oneObject = mJasonArray.getJSONObject(i);
                 arrayOfArticles.add(new Article(
                         oneObject.getString("idArticle"),
                         oneObject.getString("titre"),
                         oneObject.getString("auteur"),
-                        oneObject.getString("urlImage"),
+                        oneObject.getString("urlImage").replaceAll("http://", "https://"),
                         oneObject.getString("type")));
             }
+            // TODO: Use date to sort article
+            // Use idArticle to sort them
             Collections.sort(arrayOfArticles, new Comparator<Article>() {
                 @Override
                 public int compare(Article art2, Article art1)
@@ -403,10 +408,11 @@ public class MainActivity extends AppCompatActivity
             });
 
         } catch (JSONException | IOException | ClassNotFoundException e) {
-            //oops
+            Log.e("articles_from_cache", e.toString());
+            e.printStackTrace();
         }
 
-
+        // Load interviews
         try{
             String importInterview =  CacheThis.readObject(this.getBaseContext(), "jinterview").toString();
             JSONArray mJasonArray = new JSONArray(importInterview);
@@ -415,7 +421,8 @@ public class MainActivity extends AppCompatActivity
             }
 
         }catch(JSONException | IOException | ClassNotFoundException e) {
-            //oops
+            Log.e("interviews_from_cache", e.toString());
+            e.printStackTrace();
         }
 
     }
@@ -428,7 +435,7 @@ public class MainActivity extends AppCompatActivity
         for (int i = 0; i < mUser.getMenuAssocie().size(); i++) {
             menu.findItem(mUser.getMenuAssocie().get(i)).setVisible(false);
         }
-        menu.findItem(R.id.section_outils).setVisible(false);
+        //menu.findItem(R.id.section_outils).setVisible(false);
         menu.findItem(R.id.nav_login).setVisible(true);
         Toast.makeText(getBaseContext(),"Aurevoir ",Toast.LENGTH_SHORT).show();
 

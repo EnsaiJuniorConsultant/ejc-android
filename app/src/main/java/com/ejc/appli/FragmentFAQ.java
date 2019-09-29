@@ -73,7 +73,7 @@ public class FragmentFAQ extends Fragment {
             }
         });
 
-        String adresse = "http://www.ejc.fr/FAQ.html";
+        String adresse = "https://www.ejc.fr/FAQ.php";
         myWebView.loadUrl(adresse);
         Toast.makeText(myWebView.getContext(),"Chargement ...", Toast.LENGTH_SHORT).show();
 

@@ -7,18 +7,6 @@
         android:id="@+id/nav_contact"
         android:title="@string/contact" />
 
-
-    <item android:title="@string/menuOutils"
-        android:id="@+id/section_outils"
-        android:visible="false">
-        <menu>
-            <item
-                android:id="@+id/nav_dashboard"
-                android:visible="false"
-                android:title="@string/menuDashboardTitle"/>
-        </menu>
-    </item>
-
     <item android:title="@string/app_name">
         <menu>
             <item
@@ -27,10 +15,6 @@
             <item
                 android:id="@+id/nav_ejc_history"
                 android:title="@string/menuTitleHistory" />
-            <item
-                android:id="@+id/nav_ejc_partenaires"
-                android:visible="false"
-                android:title="@string/menuTitlePartenaire" />
         </menu>
     </item>
 
@@ -47,10 +31,6 @@
 
     <item tools:ignore="MenuTitle">
         <menu>
-           <!-- <item
-                android:id="@+id/nav_setting"
-                android:title="Paramètres" /> -->
-
             <item
                 android:id="@+id/nav_login"
                 android:title="@string/se_connecter" />
