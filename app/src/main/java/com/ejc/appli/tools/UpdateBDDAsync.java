@@ -57,7 +57,23 @@ public class UpdateBDDAsync extends AsyncTask<String, Integer, String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
 
+        try {
+            OkHttpClient client = new OkHttpClient();
+            // URL url = new URL("https://ejc.fr/android/" + string + ".html");
+            URL url = new URL("https://tintinmar1995.github.io/ejc/jteam.html");
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+            Response response = client.newCall(request).execute();
+            try {
+                CacheThis.writeObject(mContext, "jteam", Objects.requireNonNull(response.body()).string());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         try {

@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity
     public  static boolean upDateMenu = false;
     public static User mUser = null;
     private boolean isMainFragment = true;
+
     public static final ArrayList<Article> arrayOfArticles = new ArrayList<>();
     public static final ArrayList<Wanted> arrayOfWanteds = new ArrayList<>();
     public static final ArrayList<Event> arrayOfEvents = new ArrayList<>();
@@ -70,11 +71,10 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Initialize BottomNavigationBar
         BottomNavigationView mBottomNavigationView = findViewById(R.id.bottom_navigation);
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) mBottomNavigationView.getLayoutParams();
         layoutParams.setBehavior(new BottomNavigationViewBehavior());
-
-        // Initialisation du menu du bas
         mBottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -107,9 +107,9 @@ public class MainActivity extends AppCompatActivity
                     }
                 });
 
+        // Check if one user is connected or not
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean keepConnected = preferences.getBoolean("user_keep_connected",false);
-
         if(keepConnected) {
             if (preferences.getInt("user_compte", -1) == 0) {
                 mUser = new Consultant(preferences.getString("user_nom", "nom"),
@@ -129,12 +129,12 @@ public class MainActivity extends AppCompatActivity
                         preferences.getString("user_mail", "mail"));
             }
         }
-
         if(mUser!=null){updateMenu(false);}
+
         setTitle("Ensai junior Consultant");
         isMainFragment = true;
 
-        // Le code ci-dessous est utile en cas de changement d'orientation ou de retour de veille
+        // This part fix an issue if user changes orientation, or leave standby mode
         if (savedInstanceState == null) {
             Fragment fragment = FragmentMain.newInstance();
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -144,7 +144,8 @@ public class MainActivity extends AppCompatActivity
             Fragment fragment = getSupportFragmentManager().findFragmentByTag("fragment_tag_main");
         }
 
-        // Au premier lancement, les données ne sont pas chargées. On relance le fragment pour intégrer les données
+        // The first time, the app is run. Data are not loaded. That why we reload the fragment.
+        // On the second loading, data are loaded is arrays
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run(){
@@ -272,7 +273,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    // A chaque onStart, on réextrait les données des sauvegardes json
+    // onStart provoques a loading of data from cache
     @Override
     public void onStart(){
         super.onStart();
@@ -282,75 +283,34 @@ public class MainActivity extends AppCompatActivity
         arrayOfInterview.clear();
 
         // Load wanted
-        // TODO: Create a function ParseJSON in the Class Wanted
         try {
             String importWanted =  CacheThis.readObject(this.getBaseContext(), "jwanted").toString();
             JSONArray mJasonArray = new JSONArray(importWanted);
-            Log.i("bdd","Ajout de "+mJasonArray.length()+" Wanted");
+
             for (int i=0; i < mJasonArray.length(); i++) {
                 JSONObject oneObject = mJasonArray.getJSONObject(i);
-                List<String> comp1 = new ArrayList<>();
-                List<String> phase1 = new ArrayList<>();
-                List<String> ech1 = new ArrayList<>();
-
-                for(int a = 0 ; a < oneObject.getJSONArray("competence").length() ; a++) {
-                    comp1.add(oneObject.getJSONArray("competence").getString(a));
-                }
-                for(int b = 0 ; b < oneObject.getJSONArray("phase").length() ; b++) {
-                    phase1.add(oneObject.getJSONArray("phase").getString(b));
-                }
-                for(int c = 0 ; c < oneObject.getJSONArray("echeancier").length() ; c++) {
-                    ech1.add(oneObject.getJSONArray("echeancier").getString(c));
-                }
-
-                JSONObject jCdP = oneObject.getJSONObject("chefDeProjet");
-                JSONObject jAssCdP = oneObject.getJSONObject("assCdP");
-
-                List<User> cdp = new ArrayList<>();
-
-                if(jCdP.getInt("compte")==1){
-                    cdp.add(new Administrateur(jCdP.getString("nom"),jCdP.getString("prenom"),jCdP.getString("mail")));
-                }else if(jCdP.getInt("compte")==3) {
-                    cdp.add(new ChefDeProjet(jCdP.getString("nom"), jCdP.getString("prenom"), jCdP.getString("mail")));
-                }
-
-                if(jAssCdP.getInt("compte")==1){
-                    cdp.add(new Administrateur(jAssCdP.getString("nom"),jAssCdP.getString("prenom"),jAssCdP.getString("mail")));
-                }else if(jAssCdP.getInt("compte")==3){
-                    cdp.add(new ChefDeProjet(jAssCdP.getString("nom"),jAssCdP.getString("prenom"),jAssCdP.getString("mail")));
-                }
-
-                arrayOfWanteds.add(new Wanted(oneObject.getInt("idEtude"),
-                        phase1,
-                        new boolean[]{oneObject.getJSONArray("annees").getBoolean(0),oneObject.getJSONArray("annees").getBoolean(1),oneObject.getJSONArray("annees").getBoolean(2)},
-                        oneObject.getInt("nbreConsultant"),
-                        comp1,
-                        ech1,
-                        cdp.get(0),
-                        cdp.get(1)));
-
-                Collections.sort(arrayOfWanteds, new Comparator<Wanted>() {
-                    @Override
-                    public int compare(Wanted w2, Wanted w1)
-                    {
-                        return w2.getIdEtude()-w1.getIdEtude();
-                    }
-                });
-
+                arrayOfWanteds.add(Wanted.ParseJSON(oneObject));
             }
+
+            Collections.sort(arrayOfWanteds, new Comparator<Wanted>() {
+                @Override
+                public int compare(Wanted w2, Wanted w1)
+                {
+                    return w2.getIdEtude()-w1.getIdEtude();
+                }
+            });
+
         } catch (JSONException | IOException | ClassNotFoundException e) {
-            Log.e("wanteds_from_cache", e.toString());
             e.printStackTrace();
         }
 
         // Load events
-        // TODO: Create a function ParseJSON in the Class Event
         try {
             String importEvent =  CacheThis.readObject(this.getBaseContext(), "jevent").toString();
             JSONArray mJasonArray = new JSONArray(importEvent);
             for (int i=0; i < mJasonArray.length(); i++) {
                 JSONObject oneObject = mJasonArray.getJSONObject(i);
-                Event candidat = new Event(
+                Event intentEvent = new Event(
                         oneObject.getInt("jour"),
                         oneObject.getInt("mois"),
                         oneObject.getInt("annee"),
@@ -358,9 +318,9 @@ public class MainActivity extends AppCompatActivity
                         oneObject.getString("organisateur"),
                         oneObject.getString("commentaire"),
                         oneObject.getString("localisation"));
-                Log.i("bdd",candidat.date.toString());
-                if (candidat.date.compareTo(Calendar.getInstance(TimeZone.getDefault())) > 0){
-                    arrayOfEvents.add(candidat);
+                Log.i("bdd",intentEvent.date.toString());
+                if (intentEvent.date.compareTo(Calendar.getInstance(TimeZone.getDefault())) > 0){
+                    arrayOfEvents.add(intentEvent);
                 }
             }
 

@@ -13,10 +13,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ejc.appli.test.R;
+import com.ejc.appli.tools.CacheThis;
 import com.ejc.appli.tools.CustomDisplay;
+import com.ejc.appli.wanted.Wanted;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class PoleFragment extends Fragment {
 
@@ -77,76 +89,19 @@ public class PoleFragment extends Fragment {
         TextView valeurStat2 = vue.findViewById(R.id.tvStat2chiffre);
         TextView labelStat2 = vue.findViewById(R.id.tvStat2label);
 
-        switch (pole) {
-            case "cdp":
+        try {
+            // Retrieve json from cache
+            String jsonTeam =  CacheThis.readObject(vue.getContext(), "jteam").toString();
 
-                arrayOfUsers.clear();
-                arrayOfUsers.add(new MailContact("contact@ejc.fr", "EjC"));
-
-                break;
-            case "ci":
-
-                arrayOfUsers.clear();
-                arrayOfUsers.add(new MailContact("controle-interne@ejc.fr", "EjC"));
-                arrayOfUsers.add(new MailContact("isaura.laurent@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("solene.venezia@ensai.fr", "Administrateur"));
-
-                break;
-            case "comm":
-
-                arrayOfUsers.clear();
-                arrayOfUsers.add(new MailContact("communication@ejc.fr", "EjC"));
-                arrayOfUsers.add(new MailContact("marie.ract@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("remy.chevalier@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("juliette.meyer@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("louis.le-clainche@ensai.fr", "Administrateur"));
-
-                break;
-            case "devco":
-
-                arrayOfUsers.clear();
-                arrayOfUsers.add(new MailContact("developpement-commercial@ejc.fr", "EjC"));
-                arrayOfUsers.add(new MailContact("betty.bonnet@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("lea.fortat@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("mahalia.stepanoff@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("dylan.decrulle@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("laurine.bonin@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("nicolas.bertin@ensai.fr", "Administrateur"));
-
-                break;
-            case "info":
-
-                arrayOfUsers.clear();
-                arrayOfUsers.add(new MailContact("info@ejc.fr", "EjC"));
-                arrayOfUsers.add(new MailContact("samuel.goutin@ensai.fr", "Administrateur"));
-                arrayOfUsers.add(new MailContact("paul.imbault@ensai.fr", "Administrateur"));
-
-                break;
-            case "prez":
-
-                arrayOfUsers.clear();
-                arrayOfUsers.add(new MailContact("presidence@ejc.fr", "EjC"));
-                arrayOfUsers.add(new MailContact("margot.havet@ensai.fr", "Présidente"));
-                arrayOfUsers.add(new MailContact("julie.mandard@ensai.fr", "Vice-présidente"));
-                arrayOfUsers.add(new MailContact("derek.aubert@ensai.fr", "Vice-président"));
-
-                break;
-            case "secgen":
-
-                arrayOfUsers.clear();
-                arrayOfUsers.add(new MailContact("secretaire@ejc.fr", "EjC"));
-                arrayOfUsers.add(new MailContact("clement.soulignac@ensai.fr", "Administrateur"));
-
-                break;
-            case "treso":
-
-                arrayOfUsers.clear();
-                arrayOfUsers.add(new MailContact("tresorerie@ejc.fr", "EjC"));
-                arrayOfUsers.add(new MailContact("alois.de-oliveira@ensai.fr", "Trésorier"));
-                arrayOfUsers.add(new MailContact("melanie.baconnais@ensai.fr", "Vice-trésorier"));
-                arrayOfUsers.add(new MailContact("albane.cosse@ensai.fr", "Comptable"));
-
-                break;
+            // Decode json array from the right pole
+            JSONObject oneObject = new JSONObject(jsonTeam);
+            JSONArray listOfMails = oneObject.getJSONArray(pole);
+            for (int i=0; i < listOfMails.length(); i++) {
+                JSONObject jsonMail = listOfMails.getJSONObject(i);
+                arrayOfUsers.add(MailContact.ParseJSON(jsonMail));
+            }
+        } catch (JSONException | IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
 
         nomPole.setText(iNom);
