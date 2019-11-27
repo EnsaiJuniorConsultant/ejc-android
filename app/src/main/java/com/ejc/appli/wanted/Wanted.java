@@ -1,7 +1,9 @@
 package com.ejc.appli.wanted;
 
+import android.content.Context;
 import android.util.Log;
 
+import com.ejc.appli.tools.CacheThis;
 import com.ejc.appli.user.Administrateur;
 import com.ejc.appli.user.ChefDeProjet;
 import com.ejc.appli.user.User;
@@ -10,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -37,7 +40,7 @@ public class Wanted {
         this.echeancier=echeancier;
     }
 
-    public static Wanted ParseJSON(JSONObject oneObject) {
+    private static Wanted ParseJSON(JSONObject oneObject) {
             try {
                 List<String> comp1 = new ArrayList<>();
                 List<String> phase1 = new ArrayList<>();
@@ -84,6 +87,29 @@ public class Wanted {
             }
     }
 
+    public static ArrayList<Wanted> ParseJSONArray(JSONArray mJasonArray) {
+
+        ArrayList<Wanted> arrayOfWanteds = new ArrayList<>();
+        try {
+            for (int i=0; i < mJasonArray.length(); i++) {
+                JSONObject oneObject = mJasonArray.getJSONObject(i);
+                arrayOfWanteds.add(Wanted.ParseJSON(oneObject));
+            }
+
+            Collections.sort(arrayOfWanteds, new Comparator<Wanted>() {
+                @Override
+                public int compare(Wanted w2, Wanted w1)
+                {
+                    return w2.getIdEtude()-w1.getIdEtude();
+                }
+            });
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return  arrayOfWanteds;
+    }
 
     public List<String> getPhase() {
         return phase;

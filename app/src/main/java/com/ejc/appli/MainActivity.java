@@ -43,11 +43,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Objects;
-import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -58,9 +56,9 @@ public class MainActivity extends AppCompatActivity
     public static User mUser = null;
     private boolean isMainFragment = true;
 
-    public static final ArrayList<Article> arrayOfArticles = new ArrayList<>();
-    public static final ArrayList<Wanted> arrayOfWanteds = new ArrayList<>();
-    public static final ArrayList<Event> arrayOfEvents = new ArrayList<>();
+    public static ArrayList<Article> arrayOfArticles = new ArrayList<>();
+    public static ArrayList<Wanted> arrayOfWanteds = new ArrayList<>();
+    public static ArrayList<Event> arrayOfEvents = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -238,13 +236,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    /*
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-    */
-
     @Override
     public void onResume(){
         super.onResume();
@@ -272,60 +263,26 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onStart(){
         super.onStart();
-        arrayOfArticles.clear();
-        arrayOfEvents.clear();
-        arrayOfWanteds.clear();
+        JSONArray mJSONArray = null;
 
-        // Load wanted
+
+        // Read cache file jarticle/jevent/jwanted, created during the splash screen
+        // Parse the file to generate an array a articles/events/wanteds
+
+
+        // Load wanteds
         try {
-            String importWanted =  CacheThis.readObject(this.getBaseContext(), "jwanted").toString();
-            JSONArray mJasonArray = new JSONArray(importWanted);
-
-            for (int i=0; i < mJasonArray.length(); i++) {
-                JSONObject oneObject = mJasonArray.getJSONObject(i);
-                arrayOfWanteds.add(Wanted.ParseJSON(oneObject));
-            }
-
-            Collections.sort(arrayOfWanteds, new Comparator<Wanted>() {
-                @Override
-                public int compare(Wanted w2, Wanted w1)
-                {
-                    return w2.getIdEtude()-w1.getIdEtude();
-                }
-            });
-
+            mJSONArray = new JSONArray(CacheThis.readObject(this.getBaseContext(), "jwanted").toString());
+            arrayOfWanteds = Wanted.ParseJSONArray(mJSONArray);
         } catch (JSONException | IOException | ClassNotFoundException e) {
+            Log.e("wanteds_from_cache", e.toString());
             e.printStackTrace();
         }
 
         // Load events
         try {
-            String importEvent =  CacheThis.readObject(this.getBaseContext(), "jevent").toString();
-            JSONArray mJasonArray = new JSONArray(importEvent);
-            for (int i=0; i < mJasonArray.length(); i++) {
-                JSONObject oneObject = mJasonArray.getJSONObject(i);
-                Event intentEvent = new Event(
-                        oneObject.getInt("jour"),
-                        oneObject.getInt("mois"),
-                        oneObject.getInt("annee"),
-                        oneObject.getString("label"),
-                        oneObject.getString("organisateur"),
-                        oneObject.getString("commentaire"),
-                        oneObject.getString("localisation"));
-                Log.i("bdd",intentEvent.date.toString());
-                if (intentEvent.date.compareTo(Calendar.getInstance(TimeZone.getDefault())) > 0){
-                    arrayOfEvents.add(intentEvent);
-                }
-            }
-
-            Collections.sort(arrayOfEvents, new Comparator<Event>() {
-                @Override
-                public int compare(Event ev2, Event ev1)
-                {
-                    return -ev1.date.compareTo(ev2.date);
-                }
-            });
-
+            mJSONArray = new JSONArray(CacheThis.readObject(this.getBaseContext(), "jevent").toString());
+            arrayOfEvents = Event.ParseJSONArray(mJSONArray);
         } catch (JSONException | IOException | ClassNotFoundException e) {
             Log.e("events_from_cache", e.toString());
             e.printStackTrace();
@@ -333,33 +290,8 @@ public class MainActivity extends AppCompatActivity
 
         // Load articles
         try {
-            // Read cache file jarticle, created during the splash screen
-            // Parse the file to generate an array a articles
-            String importArticle =  CacheThis.readObject(this.getBaseContext(), "jarticle").toString();
-            JSONArray mJasonArray = new JSONArray(importArticle);
-            Log.i("articles_from_cache","Ajout de "+mJasonArray.length()+" Articles");
-            // TODO: Create a method ParseJSON in the Class Article
-            for (int i=0; i < mJasonArray.length(); i++) {
-                JSONObject oneObject = mJasonArray.getJSONObject(i);
-                arrayOfArticles.add(new Article(
-                        oneObject.getString("idArticle"),
-                        oneObject.getString("titre"),
-                        oneObject.getString("auteur"),
-                        oneObject.getString("urlImage").replaceAll("http://", "https://"),
-                        oneObject.getString("type")));
-            }
-            // TODO: Add date in json file and then use the date to sort article
-            // Use idArticle to sort them
-            Collections.sort(arrayOfArticles, new Comparator<Article>() {
-                @Override
-                public int compare(Article art2, Article art1)
-                {
-                    int id1 = Integer.parseInt(art1.idArticle.replace("_",""));
-                    int id2 = Integer.parseInt(art2.idArticle.replace("_",""));
-                    return  id1-id2;
-                }
-            });
-
+            mJSONArray = new JSONArray(CacheThis.readObject(this.getBaseContext(), "jarticle").toString());
+            arrayOfArticles = Article.ParseJSONArray(mJSONArray);
         } catch (JSONException | IOException | ClassNotFoundException e) {
             Log.e("articles_from_cache", e.toString());
             e.printStackTrace();
