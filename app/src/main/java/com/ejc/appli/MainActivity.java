@@ -46,7 +46,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Objects;
 import java.util.TimeZone;
 
@@ -62,7 +61,6 @@ public class MainActivity extends AppCompatActivity
     public static final ArrayList<Article> arrayOfArticles = new ArrayList<>();
     public static final ArrayList<Wanted> arrayOfWanteds = new ArrayList<>();
     public static final ArrayList<Event> arrayOfEvents = new ArrayList<>();
-    public static final ArrayList<String> arrayOfInterview = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,13 +80,10 @@ public class MainActivity extends AppCompatActivity
                         Fragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.action_home:
-                                selectedFragment = FragmentMain.newInstance();
+                                selectedFragment = FragmentTousArticles.newInstance();
                                 break;
                             case R.id.action_1:
                                 selectedFragment = FragmentTousEvent.newInstance();
-                                break;
-                            case R.id.action_2:
-                                selectedFragment = FragmentTousArticles.newInstance();
                                 break;
                             case R.id.action_3:
                                 selectedFragment = FragmentTousWanted.newInstance();
@@ -136,7 +131,7 @@ public class MainActivity extends AppCompatActivity
 
         // This part fix an issue if user changes orientation, or leave standby mode
         if (savedInstanceState == null) {
-            Fragment fragment = FragmentMain.newInstance();
+            Fragment fragment = FragmentTousArticles.newInstance();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragment.setArguments(getIntent().getExtras());
             fragmentManager.beginTransaction().replace(R.id.flContent, fragment,"fragment_tag_main").commit();
@@ -149,7 +144,7 @@ public class MainActivity extends AppCompatActivity
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run(){
-                Fragment fragment = FragmentMain.newInstance();
+                Fragment fragment = FragmentTousArticles.newInstance();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragment.setArguments(getIntent().getExtras());
                 fragmentManager.beginTransaction().replace(R.id.flContent, fragment,"fragment_tag_main").commit();
@@ -172,7 +167,7 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else if (!isMainFragment){
-            Fragment fragment = FragmentMain.newInstance();
+            Fragment fragment = FragmentTousArticles.newInstance();
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             BottomNavigationView mBottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -280,7 +275,6 @@ public class MainActivity extends AppCompatActivity
         arrayOfArticles.clear();
         arrayOfEvents.clear();
         arrayOfWanteds.clear();
-        arrayOfInterview.clear();
 
         // Load wanted
         try {
@@ -338,7 +332,6 @@ public class MainActivity extends AppCompatActivity
         }
 
         // Load articles
-        // TODO : Import articles from the Internet
         try {
             // Read cache file jarticle, created during the splash screen
             // Parse the file to generate an array a articles
@@ -355,7 +348,7 @@ public class MainActivity extends AppCompatActivity
                         oneObject.getString("urlImage").replaceAll("http://", "https://"),
                         oneObject.getString("type")));
             }
-            // TODO: Use date to sort article
+            // TODO: Add date in json file and then use the date to sort article
             // Use idArticle to sort them
             Collections.sort(arrayOfArticles, new Comparator<Article>() {
                 @Override
@@ -369,19 +362,6 @@ public class MainActivity extends AppCompatActivity
 
         } catch (JSONException | IOException | ClassNotFoundException e) {
             Log.e("articles_from_cache", e.toString());
-            e.printStackTrace();
-        }
-
-        // Load interviews
-        try{
-            String importInterview =  CacheThis.readObject(this.getBaseContext(), "jinterview").toString();
-            JSONArray mJasonArray = new JSONArray(importInterview);
-            for(int i = 0; i < mJasonArray.length();i++){
-                arrayOfInterview.add(mJasonArray.getString(i));
-            }
-
-        }catch(JSONException | IOException | ClassNotFoundException e) {
-            Log.e("interviews_from_cache", e.toString());
             e.printStackTrace();
         }
 

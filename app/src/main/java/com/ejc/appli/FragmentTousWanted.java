@@ -35,7 +35,7 @@ public class FragmentTousWanted extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment FragmentMain.
+     * @return A new instance of fragment FragmentTousWanted.
      */
     // TODO: Rename and change types and number of parameters
     public static FragmentTousWanted newInstance() {

@@ -45,6 +45,7 @@ public class ArticleAdapter  extends ArrayAdapter<Article> {
         if(CustomNetwork.isNetworkAvailable(imageView.getContext())) {
             Picasso.get()
                     .load(mArticle.urlImage)
+                    .placeholder(R.mipmap.fondaccueil)
                     .fit()
                     .centerInside()
                     .into(imageView);

@@ -3,6 +3,7 @@ package com.ejc.appli.history;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,33 +11,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ejc.appli.test.R;
+import com.ejc.appli.tools.CustomNetwork;
+import com.squareup.picasso.Picasso;
 
 public class An20XXFragment extends Fragment {
 
     private String titre = "Nouveau logo";
     private String listeAction = "";
-    private int img = -1 ;
+    private String img = "" ;
 
     public An20XXFragment(){}
 
-
-    public static An20XXFragment newInstance(int annee,String titre,String listeAction){
+    public static An20XXFragment newInstance(int annee,String titre,String listeAction,String img){
         An20XXFragment fragment = new An20XXFragment();
         Bundle args = new Bundle();
         args.putInt("annee", annee);
         args.putString("titre", titre);
         args.putString("listeAction", listeAction);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public static An20XXFragment newInstance(int annee,String titre,String listeAction,int img){
-        An20XXFragment fragment = new An20XXFragment();
-        Bundle args = new Bundle();
-        args.putInt("annee", annee);
-        args.putString("titre", titre);
-        args.putString("listeAction", listeAction);
-        args.putInt("img", img);
+        args.putString("img", img);
         fragment.setArguments(args);
         return fragment;
     }
@@ -48,7 +40,7 @@ public class An20XXFragment extends Fragment {
         if (getArguments() != null) {
             this.titre = getArguments().getString("titre");
             this.listeAction = getArguments().getString("listeAction","");
-            this.img = getArguments().getInt("img",-1);
+            this.img = getArguments().getString("img","");
         }
     }
 
@@ -62,8 +54,13 @@ public class An20XXFragment extends Fragment {
         TextView mMaisAussi = vue.findViewById(R.id.butalso);
         ImageView mImageView = vue.findViewById(R.id.historyImage);
 
-        if(img != -1){
-            mImageView.setImageResource(img);
+        if(!img.equals("") && CustomNetwork.isNetworkAvailable(mImageView.getContext())) {
+            Picasso.get()
+                    .load("https://tintinmar1995.github.io/ejc/android/picture/" + img)
+                    .placeholder(R.mipmap.logo_long)
+                    .into(mImageView);
+        }else{
+            mImageView.setImageResource(R.mipmap.logo_long);
         }
 
         if(listeAction.equals("")){

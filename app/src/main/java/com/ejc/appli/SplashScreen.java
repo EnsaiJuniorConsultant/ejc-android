@@ -15,14 +15,20 @@ public class SplashScreen extends Activity {
        super.onCreate(savedInstanceState);
        setContentView(R.layout.activity_splash);
 
-       UpdateBDDAsync mUpdate = new UpdateBDDAsync(this.getApplicationContext());
-       String[] json = new String[4];
+       // json is the name of the databases we need to retrieve from ejc.fr
+       String[] json = new String[5];
        json[0]="jwanted";
        json[1]="jevent";
        json[2]="jarticle";
-       json[3]="jinterview";
+       json[3]="jteam";
+       json[4]="jhistory";
+
+       // Launch the async process to retrieve databases and save it to android cache
+       UpdateBDDAsync mUpdate = new UpdateBDDAsync(this.getApplicationContext());
        mUpdate.execute(json);
 
+
+       // After 3 sec, the MainActivity is launched even if UpdateBDDAsync is still running
        new Handler().postDelayed(new Runnable() {
            @Override
            public void run(){
