@@ -6,8 +6,8 @@ android {
         applicationId "com.ejc.appli"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 3
-        versionName "1.0.2b"
+        versionCode 4
+        versionName "1.1.0b"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
